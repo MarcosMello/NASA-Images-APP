@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jJa-Y3-6kC">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NasaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="itf-ya-6n8">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="367"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="2P6-oR-JEq">
+                                        <rect key="frame" x="0.0" y="392" width="393" height="367"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfr-Zm-NDc">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="163.66666666666666"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Foto astronômica do dia">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="APODButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mIi-Z1-Y8i"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv5-F5-uf0">
+                                                <rect key="frame" x="0.0" y="203.66666666666663" width="393" height="163.33333333333337"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Fotos pelo Mars Rover">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="MarsRoverButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Imk-ee-O3L"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jJa-Y3-6kC" secondAttribute="bottom" id="0a2-ho-xog"/>
+                            <constraint firstItem="jJa-Y3-6kC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="INp-w5-XZ6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jJa-Y3-6kC" secondAttribute="trailing" id="itr-29-5II"/>
+                            <constraint firstItem="jJa-Y3-6kC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sDH-MJ-ca6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="f7d-pt-6nf" kind="presentation" identifier="APODSegue" id="QxX-6q-df7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="369" y="-224"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="xqr-IK-jXz">
+            <objects>
+                <viewController id="f7d-pt-6nf" customClass="PhotoViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ccr-f9-bCw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zDS-n8-Hca" userLabel="MainContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KVE-JM-9Mo" userLabel="TextAndDateContainer">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="277.33333333333331"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a0u-gZ-g2y" userLabel="DateContainer">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="136.66666666666666"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cw9-do-DGa" userLabel="LabelAndDatePickerContainer">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="68.333333333333329"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-jV-83y" userLabel="SelectLabelWrapper">
+                                                                <rect key="frame" x="0.0" y="4.0000000000000036" width="196.66666666666666" height="60.333333333333343"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a data:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv7-bO-Gts" userLabel="SelectLabel">
+                                                                        <rect key="frame" x="20" y="0.0" width="176.66666666666666" height="60.333333333333336"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="wv7-bO-Gts" firstAttribute="leading" secondItem="BnC-jV-83y" secondAttribute="leading" constant="20" id="CeZ-Q6-6h6"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="wv7-bO-Gts" secondAttribute="bottom" id="KoP-sr-QH3"/>
+                                                                    <constraint firstItem="wv7-bO-Gts" firstAttribute="top" secondItem="BnC-jV-83y" secondAttribute="top" id="Zyn-a2-JWE"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="wv7-bO-Gts" secondAttribute="trailing" id="qgg-73-IJu"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zd-YY-Iap" userLabel="DatePickerWrapper">
+                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="68.333333333333329"/>
+                                                                <subviews>
+                                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="fYD-tH-ofa" userLabel="DatePicker">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="68.333333333333329"/>
+                                                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-174661200">
+                                                                            <!--1995-06-20 11:00:00 +0000-->
+                                                                        </date>
+                                                                    </datePicker>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="fYD-tH-ofa" firstAttribute="leading" secondItem="4zd-YY-Iap" secondAttribute="leading" id="8ck-UZ-biB"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="fYD-tH-ofa" secondAttribute="bottom" id="hcx-fG-0rM"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="fYD-tH-ofa" secondAttribute="trailing" constant="20" id="tbI-Nb-iYW"/>
+                                                                    <constraint firstItem="fYD-tH-ofa" firstAttribute="top" secondItem="4zd-YY-Iap" secondAttribute="top" id="xaM-qQ-p7g"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7A-Mn-utS" userLabel="ButtonWrapper">
+                                                        <rect key="frame" x="0.0" y="68.333333333333343" width="393" height="68.333333333333343"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlm-wm-6uR" userLabel="ConfirmButton">
+                                                                <rect key="frame" x="20" y="0.0" width="353" height="68.333333333333329"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Mostrar imagem"/>
+                                                                <connections>
+                                                                    <action selector="showImageButtonTapped:" destination="f7d-pt-6nf" eventType="touchUpInside" id="Dqn-2A-Rte"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="tlm-wm-6uR" secondAttribute="bottom" id="Mes-aw-8hc"/>
+                                                            <constraint firstItem="tlm-wm-6uR" firstAttribute="leading" secondItem="n7A-Mn-utS" secondAttribute="leading" constant="20" id="QC4-gF-UHh"/>
+                                                            <constraint firstItem="tlm-wm-6uR" firstAttribute="top" secondItem="n7A-Mn-utS" secondAttribute="top" id="QaU-4B-gJl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="tlm-wm-6uR" secondAttribute="trailing" constant="20" id="uEw-AY-QHA"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Cw9-do-DGa" firstAttribute="top" secondItem="a0u-gZ-g2y" secondAttribute="top" id="3Pw-Pu-QNi"/>
+                                                    <constraint firstItem="Cw9-do-DGa" firstAttribute="leading" secondItem="a0u-gZ-g2y" secondAttribute="leading" id="SZy-n7-lhv"/>
+                                                    <constraint firstItem="n7A-Mn-utS" firstAttribute="top" secondItem="Cw9-do-DGa" secondAttribute="bottom" id="SnP-mS-WPG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Cw9-do-DGa" secondAttribute="trailing" id="xt2-EU-uVI"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seagull Nebula over Pinnacles' Peak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjG-g0-bPd" userLabel="ImageTitle">
+                                                <rect key="frame" x="0.0" y="140.66666666666669" width="393" height="136.66666666666669"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NasaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-Mf-gAc" userLabel="Image">
+                                        <rect key="frame" x="0.0" y="282.33333333333337" width="393" height="277.33333333333337"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-cA-BHK" userLabel="Explanation">
+                                        <rect key="frame" x="0.0" y="564.66666666666663" width="393" height="277.33333333333337"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <mutableString key="text">The bird is bigger than the peak. Nicknamed for its avian shape, the Seagull Nebula is an emission nebula on the night sky that is vast, spanning an angle over five times the diameter of the full moon and over 200 light years. The head of the nebula is catalogued as IC 2177, and the star cluster under its right wing is catalogued as NGC 2343. Consisting of mostly red-glowing hydrogen gas, the Seagull Nebula incorporates some dust lanes and is forming stars. The peak over which this Seagull seems to soar occurs at Pinnacles National Park in California, USA. The featured image is a composite of long exposure images of the background sky and short exposure images of the foreground, all taken consecutively with the same camera and from the same location. Explore Your Universe: Random APOD Generator</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8s9-ch-5lI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zDS-n8-Hca" firstAttribute="leading" secondItem="8s9-ch-5lI" secondAttribute="leading" id="HUF-QK-d20"/>
+                            <constraint firstItem="8s9-ch-5lI" firstAttribute="trailing" secondItem="zDS-n8-Hca" secondAttribute="trailing" id="VLo-Gu-Dk4"/>
+                            <constraint firstItem="8s9-ch-5lI" firstAttribute="bottom" secondItem="zDS-n8-Hca" secondAttribute="bottom" id="bMZ-Ii-CWE"/>
+                            <constraint firstItem="zDS-n8-Hca" firstAttribute="top" secondItem="8s9-ch-5lI" secondAttribute="top" id="brG-1g-Opy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="fYD-tH-ofa" id="tvH-WT-atx"/>
+                        <outlet property="explanationTextView" destination="nqN-cA-BHK" id="oRC-J3-0H2"/>
+                        <outlet property="imageTitleLabel" destination="fjG-g0-bPd" id="u9E-ad-fvv"/>
+                        <outlet property="imageView" destination="xbq-Mf-gAc" id="FPK-sW-5gR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5D4-eA-atY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.70229007633588" y="514.78873239436621"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NasaLogo" width="816.33331298828125" height="682.66668701171875"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
