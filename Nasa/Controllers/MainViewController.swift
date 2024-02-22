@@ -9,9 +9,5 @@ class MainViewController: UIViewController {
     @IBAction func APODButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "APODSegue", sender: self)
     }
-    
-    @IBAction func MarsRoverButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "MarsRoverSegue", sender: self)
-    }
 }
 
