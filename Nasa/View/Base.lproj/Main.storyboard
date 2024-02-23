@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hKo-es-yAy">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -17,32 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="jJa-Y3-6kC">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NasaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="itf-ya-6n8">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="367"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="345"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="2P6-oR-JEq">
-                                        <rect key="frame" x="0.0" y="392" width="393" height="367"/>
+                                        <rect key="frame" x="0.0" y="370" width="393" height="345"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfr-Zm-NDc">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="163.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="152.66666666666666"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Foto astronômica do dia">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="APODButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mIi-Z1-Y8i"/>
+                                                    <segue destination="f7d-pt-6nf" kind="show" id="YfV-Yy-86Q"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv5-F5-uf0">
-                                                <rect key="frame" x="0.0" y="203.66666666666663" width="393" height="163.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="192.66666666666663" width="393" height="152.33333333333337"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Fotos pelo Mars Rover">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="MarsRoverButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Imk-ee-O3L"/>
+                                                    <segue destination="UGQ-8G-bi3" kind="show" id="RCO-7x-UEZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -59,39 +59,37 @@
                             <constraint firstItem="jJa-Y3-6kC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sDH-MJ-ca6"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="f7d-pt-6nf" kind="presentation" identifier="APODSegue" id="QxX-6q-df7"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="89u-Z8-oF2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369" y="-224"/>
+            <point key="canvasLocation" x="1295.4198473282443" y="-224.64788732394368"/>
         </scene>
-        <!--Photo View Controller-->
+        <!--Astronomy Picture of The Day-->
         <scene sceneID="xqr-IK-jXz">
             <objects>
                 <viewController id="f7d-pt-6nf" customClass="PhotoViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ccr-f9-bCw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zDS-n8-Hca" userLabel="MainContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KVE-JM-9Mo" userLabel="TextAndDateContainer">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="277.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="235"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a0u-gZ-g2y" userLabel="DateContainer">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="136.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="115.66666666666667"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cw9-do-DGa" userLabel="LabelAndDatePickerContainer">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="68.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="57.666666666666664"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnC-jV-83y" userLabel="SelectLabelWrapper">
-                                                                <rect key="frame" x="0.0" y="4.0000000000000036" width="196.66666666666666" height="60.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="57.666666666666664"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a data:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv7-bO-Gts" userLabel="SelectLabel">
-                                                                        <rect key="frame" x="20" y="0.0" width="176.66666666666666" height="60.333333333333336"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="176.66666666666666" height="57.666666666666664"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -106,10 +104,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zd-YY-Iap" userLabel="DatePickerWrapper">
-                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="68.333333333333329"/>
+                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="57.666666666666664"/>
                                                                 <subviews>
                                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="fYD-tH-ofa" userLabel="DatePicker">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="68.333333333333329"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="57.666666666666664"/>
                                                                         <date key="minimumDate" timeIntervalSinceReferenceDate="-174661200">
                                                                             <!--1995-06-20 11:00:00 +0000-->
                                                                         </date>
@@ -126,10 +124,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7A-Mn-utS" userLabel="ButtonWrapper">
-                                                        <rect key="frame" x="0.0" y="68.333333333333343" width="393" height="68.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="57.666666666666657" width="393" height="58"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlm-wm-6uR" userLabel="ConfirmButton">
-                                                                <rect key="frame" x="20" y="0.0" width="353" height="68.333333333333329"/>
+                                                                <rect key="frame" x="20" y="0.0" width="353" height="58"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled" title="Mostrar imagem"/>
                                                                 <connections>
@@ -154,7 +152,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seagull Nebula over Pinnacles' Peak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjG-g0-bPd" userLabel="ImageTitle">
-                                                <rect key="frame" x="0.0" y="140.66666666666669" width="393" height="136.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="119.66666666666666" width="393" height="115.33333333333334"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -162,12 +160,12 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NasaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-Mf-gAc" userLabel="Image">
-                                        <rect key="frame" x="0.0" y="282.33333333333337" width="393" height="277.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="240" width="393" height="235"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-cA-BHK" userLabel="Explanation">
-                                        <rect key="frame" x="0.0" y="564.66666666666663" width="393" height="277.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="480" width="393" height="235"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">The bird is bigger than the peak. Nicknamed for its avian shape, the Seagull Nebula is an emission nebula on the night sky that is vast, spanning an angle over five times the diameter of the full moon and over 200 light years. The head of the nebula is catalogued as IC 2177, and the star cluster under its right wing is catalogued as NGC 2343. Consisting of mostly red-glowing hydrogen gas, the Seagull Nebula incorporates some dust lanes and is forming stars. The peak over which this Seagull seems to soar occurs at Pinnacles National Park in California, USA. The featured image is a composite of long exposure images of the background sky and short exposure images of the foreground, all taken consecutively with the same camera and from the same location. Explore Your Universe: Random APOD Generator</mutableString>
+                                        <string key="text">The bird is bigger than the peak. Nicknamed for its avian shape, the Seagull Nebula is an emission nebula on the night sky that is vast, spanning an angle over five times the diameter of the full moon and over 200 light years. The head of the nebula is catalogued as IC 2177, and the star cluster under its right wing is catalogued as NGC 2343. Consisting of mostly red-glowing hydrogen gas, the Seagull Nebula incorporates some dust lanes and is forming stars. The peak over which this Seagull seems to soar occurs at Pinnacles National Park in California, USA. The featured image is a composite of long exposure images of the background sky and short exposure images of the foreground, all taken consecutively with the same camera and from the same location. Explore Your Universe: Random APOD Generator</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -184,6 +182,7 @@
                             <constraint firstItem="zDS-n8-Hca" firstAttribute="top" secondItem="8s9-ch-5lI" secondAttribute="top" id="brG-1g-Opy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Astronomy Picture of The Day" id="IDS-pH-7P3"/>
                     <connections>
                         <outlet property="datePicker" destination="fYD-tH-ofa" id="tvH-WT-atx"/>
                         <outlet property="explanationTextView" destination="nqN-cA-BHK" id="oRC-J3-0H2"/>
@@ -193,7 +192,197 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5D4-eA-atY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.70229007633588" y="514.78873239436621"/>
+            <point key="canvasLocation" x="882" y="511"/>
+        </scene>
+        <!--Mars Rover-->
+        <scene sceneID="v0v-eD-JpK">
+            <objects>
+                <viewController id="UGQ-8G-bi3" customClass="GaleryViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jIV-43-K1M">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="shg-zb-orw" userLabel="MainContainer">
+                                <rect key="frame" x="20" y="103" width="353" height="715"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="B3G-3G-1fj" userLabel="FilterContainer">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="355"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="f0C-H2-THP" userLabel="DatePickerContainer">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="51.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf0-B0-pdj" userLabel="DataLabel">
+                                                        <rect key="frame" x="0.0" y="15.333333333333327" width="130" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="zcQ-Ef-d77">
+                                                        <rect key="frame" x="161" y="0.6666666666666714" width="192" height="50"/>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kDo-Gk-egH" userLabel="TextFieldContainer">
+                                                <rect key="frame" x="0.0" y="101.33333333333334" width="353" height="51.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione a camera:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfV-Dx-mec">
+                                                        <rect key="frame" x="0.0" y="0.0" width="153" height="51.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLg-F0-FWg">
+                                                        <rect key="frame" x="173" y="0.0" width="180" height="51.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DNW-4U-tcp" userLabel="PageCounterContainer">
+                                                <rect key="frame" x="0.0" y="202.66666666666669" width="353" height="51"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5z7-4p-Q9g" userLabel="PreviousPage">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="51"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="-"/>
+                                                        <connections>
+                                                            <action selector="PreviousPageButtonTapped:" destination="UGQ-8G-bi3" eventType="touchUpInside" id="wdB-1p-Jgb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Página" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjd-JN-WJA">
+                                                        <rect key="frame" x="119.33333333333334" y="0.0" width="114.33333333333334" height="51"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wf-WJ-987" userLabel="NextPage">
+                                                        <rect key="frame" x="238.66666666666671" y="0.0" width="114.33333333333334" height="51"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="+"/>
+                                                        <connections>
+                                                            <action selector="NextPageButtonTapped:" destination="UGQ-8G-bi3" eventType="touchUpInside" id="dsn-MD-SWQ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bB5-F6-d2P">
+                                                <rect key="frame" x="0.0" y="303.66666666666669" width="353" height="51.333333333333314"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Filtrar"/>
+                                                <connections>
+                                                    <action selector="filterButtonTapped:" destination="UGQ-8G-bi3" eventType="touchUpInside" id="3b2-c3-aRT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-ve-lLg">
+                                        <rect key="frame" x="0.0" y="360" width="353" height="355"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Esc-mh-jIR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Esc-mh-jIR" firstAttribute="trailing" secondItem="shg-zb-orw" secondAttribute="trailing" constant="20" id="000-3e-GDo"/>
+                            <constraint firstItem="shg-zb-orw" firstAttribute="leading" secondItem="Esc-mh-jIR" secondAttribute="leading" constant="20" id="Dmx-G5-reS"/>
+                            <constraint firstItem="shg-zb-orw" firstAttribute="top" secondItem="Esc-mh-jIR" secondAttribute="top" id="PjL-QJ-EF7"/>
+                            <constraint firstItem="Esc-mh-jIR" firstAttribute="bottom" secondItem="shg-zb-orw" secondAttribute="bottom" id="nEt-N8-uCg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mars Rover" id="5u5-n9-6WM"/>
+                    <connections>
+                        <outlet property="cameraTextField" destination="zLg-F0-FWg" id="eM2-Zf-kYT"/>
+                        <outlet property="datePicker" destination="zcQ-Ef-d77" id="Sqs-us-LmY"/>
+                        <outlet property="pageIndicator" destination="gjd-JN-WJA" id="lbf-4X-Ogr"/>
+                        <outlet property="tableView" destination="AZt-ve-lLg" id="c9d-Us-8Wb"/>
+                        <segue destination="MIz-Qc-3cD" kind="presentation" identifier="DetailsSegue" id="NTw-12-Taj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBq-5s-FYE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707.6335877862596" y="510.56338028169017"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="Bax-DL-s18">
+            <objects>
+                <viewController id="MIz-Qc-3cD" customClass="DetailsViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bjq-6m-PaO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zGL-8C-Nph">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STG-rI-u6f">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-QB-xyt">
+                                                <rect key="frame" x="176" y="14.999999999999998" width="41.333333333333343" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="OSv-UO-tr1"/>
+                                            <constraint firstItem="PCB-QB-xyt" firstAttribute="centerX" secondItem="STG-rI-u6f" secondAttribute="centerX" id="Z5Y-qM-Hcw"/>
+                                            <constraint firstItem="PCB-QB-xyt" firstAttribute="centerY" secondItem="STG-rI-u6f" secondAttribute="centerY" id="nEU-Bf-0jV"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MVe-4K-foa">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="792"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MVe-4K-foa" secondAttribute="trailing" id="EyL-WF-hC9"/>
+                                    <constraint firstItem="MVe-4K-foa" firstAttribute="top" secondItem="STG-rI-u6f" secondAttribute="bottom" id="K1B-Ec-40P"/>
+                                    <constraint firstAttribute="trailing" secondItem="STG-rI-u6f" secondAttribute="trailing" id="Rao-mC-4ZZ"/>
+                                    <constraint firstItem="MVe-4K-foa" firstAttribute="leading" secondItem="zGL-8C-Nph" secondAttribute="leading" id="fMO-t1-8os"/>
+                                    <constraint firstItem="MVe-4K-foa" firstAttribute="top" secondItem="STG-rI-u6f" secondAttribute="bottom" id="jcC-lP-sTp"/>
+                                    <constraint firstItem="STG-rI-u6f" firstAttribute="leading" secondItem="zGL-8C-Nph" secondAttribute="leading" id="pAO-Hq-Db9"/>
+                                    <constraint firstItem="STG-rI-u6f" firstAttribute="top" secondItem="zGL-8C-Nph" secondAttribute="top" id="pWv-Ev-aag"/>
+                                    <constraint firstAttribute="bottom" secondItem="MVe-4K-foa" secondAttribute="bottom" id="sEl-iJ-rmQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f5p-F0-h1X"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zGL-8C-Nph" firstAttribute="leading" secondItem="f5p-F0-h1X" secondAttribute="leading" id="bOE-DV-N6p"/>
+                            <constraint firstItem="zGL-8C-Nph" firstAttribute="top" secondItem="f5p-F0-h1X" secondAttribute="top" id="fjB-vr-WxW"/>
+                            <constraint firstItem="f5p-F0-h1X" firstAttribute="trailing" secondItem="zGL-8C-Nph" secondAttribute="trailing" id="fv1-td-TxV"/>
+                            <constraint firstItem="f5p-F0-h1X" firstAttribute="bottom" secondItem="zGL-8C-Nph" secondAttribute="bottom" id="x8G-i9-1qa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="MVe-4K-foa" id="hKl-AY-2GR"/>
+                        <outlet property="titleUILabel" destination="PCB-QB-xyt" id="j3d-f5-irv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08b-w2-6hd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707.6335877862596" y="1227.4647887323945"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="099-cu-UA4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hKo-es-yAy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Sd-4i-vq4">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HhV-ZG-Gw8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dm0-H8-hYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.70229007633588" y="-224.64788732394368"/>
         </scene>
     </scenes>
     <resources>
