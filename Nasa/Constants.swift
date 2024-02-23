@@ -1,8 +1,12 @@
-//
-//  Constants.swift
-//  Nasa
-//
-//  Created by Marcos Vinicius Vargas Mello on 23/02/24.
-//
-
 import Foundation
+
+struct Constants {
+    static let componentsOfGaleryViewUIPicker: Int = 1
+    
+    static let galeryViewCustomTableCellIdentifier: String = "ReusableCustomImageCell"
+    static let galeryViewCustomTableCell: String = "GaleryTableViewCell"
+    
+    static let allCameraOption: String = "All"
+    
+    static let segueFromGaleryToDetails: String = "DetailsSegue"
+}
