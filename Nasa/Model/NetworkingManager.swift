@@ -9,11 +9,11 @@ enum NetworkingManagerError: Error {
 }
 
 protocol NetworkingManagerDelegate {
-    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: DecodableWithTypeHint)
+    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: Decodable)
     func onFail(with error: Error)
 }
 
-struct NetworkingManager<T: DecodableWithTypeHint> {
+struct NetworkingManager<T: Decodable> {
     let baseURL: String?
     
     var delegate: NetworkingManagerDelegate?

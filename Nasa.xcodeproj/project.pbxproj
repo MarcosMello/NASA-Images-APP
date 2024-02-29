@@ -17,7 +17,6 @@
 		8D342B9E2B85693300B2DE85 /* NasaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342B9D2B85693300B2DE85 /* NasaUITests.swift */; };
 		8D342BA02B85693300B2DE85 /* NasaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342B9F2B85693300B2DE85 /* NasaUITestsLaunchTests.swift */; };
 		8D342BB02B857BCF00B2DE85 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BAF2B857BCF00B2DE85 /* NetworkingManager.swift */; };
-		8D342BCB2B86146200B2DE85 /* NetworkTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BCA2B86146200B2DE85 /* NetworkTypeEnum.swift */; };
 		8D342BCD2B86149900B2DE85 /* APODModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BCC2B86149900B2DE85 /* APODModel.swift */; };
 		8D342BD12B862A8000B2DE85 /* MarsRoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD02B862A8000B2DE85 /* MarsRoverModel.swift */; };
 		8D342BD42B86806200B2DE85 /* GaleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD32B86806200B2DE85 /* GaleryViewController.swift */; };
@@ -61,7 +60,6 @@
 		8D342B9D2B85693300B2DE85 /* NasaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaUITests.swift; sourceTree = "<group>"; };
 		8D342B9F2B85693300B2DE85 /* NasaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8D342BAF2B857BCF00B2DE85 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		8D342BCA2B86146200B2DE85 /* NetworkTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTypeEnum.swift; sourceTree = "<group>"; };
 		8D342BCC2B86149900B2DE85 /* APODModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODModel.swift; sourceTree = "<group>"; };
 		8D342BD02B862A8000B2DE85 /* MarsRoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverModel.swift; sourceTree = "<group>"; };
 		8D342BD32B86806200B2DE85 /* GaleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				8D342BAF2B857BCF00B2DE85 /* NetworkingManager.swift */,
-				8D342BCA2B86146200B2DE85 /* NetworkTypeEnum.swift */,
 				8D342BCC2B86149900B2DE85 /* APODModel.swift */,
 				8D342BD02B862A8000B2DE85 /* MarsRoverModel.swift */,
 			);
@@ -321,7 +318,6 @@
 				8D342BD12B862A8000B2DE85 /* MarsRoverModel.swift in Sources */,
 				8D342B812B85693100B2DE85 /* MainViewController.swift in Sources */,
 				8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */,
-				8D342BCB2B86146200B2DE85 /* NetworkTypeEnum.swift in Sources */,
 				8D342B7D2B85693100B2DE85 /* AppDelegate.swift in Sources */,
 				8DDDD76E2B88629100506A2C /* GaleryTableViewCell.swift in Sources */,
 				8D342B7F2B85693100B2DE85 /* SceneDelegate.swift in Sources */,

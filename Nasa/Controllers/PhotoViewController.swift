@@ -1,10 +1,3 @@
-//
-//  SelectedPhotoViewController.swift
-//  Nasa
-//
-//  Created by Marcos Vinicius Vargas Mello on 21/02/24.
-//
-
 import UIKit
 
 class PhotoViewController: UIViewController, NetworkingManagerDelegate {
@@ -32,19 +25,15 @@ class PhotoViewController: UIViewController, NetworkingManagerDelegate {
             return
         }
         
-        let url: String?
-
+        var url: String? = networkingManager.prepareURL(endpoint: "planetary/apod", apiKey: apiKey)
+        
         if let date = date {
             url = networkingManager.prepareURL(endpoint: "planetary/apod", apiKey: apiKey, queryParameters: ["date=\(date)"])
-        } else {
-            url = networkingManager.prepareURL(endpoint: "planetary/apod", apiKey: apiKey)
         }
-        
-        guard let unwrappedURL = url else {
-            return
+          
+        if let unwrappedURL = url{
+            networkingManager.getTask(with: unwrappedURL)
         }
-        
-        networkingManager.getTask(with: unwrappedURL)
     }
     
     @IBAction func showImageButtonTapped(_ sender: UIButton) {
@@ -56,7 +45,7 @@ class PhotoViewController: UIViewController, NetworkingManagerDelegate {
         callAPODEndpoint(with: dateFormatter.string(from: datePicker.date))
     }
     
-    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: DecodableWithTypeHint) where T : DecodableWithTypeHint {
+    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: Decodable) where T : Decodable {
         DispatchQueue.main.async {
             let APODModelInstance = decodableModel as? APODModel
             
@@ -69,11 +58,9 @@ class PhotoViewController: UIViewController, NetworkingManagerDelegate {
             
             let url = URL(string: unwrappedAPODModelInstance.hdurl ?? unwrappedAPODModelInstance.url)
             
-            guard let unwrappedURL = url else{
-                return
+            if let unwrappedURL = url{
+                self.imageView.load(url: unwrappedURL)
             }
-            
-            self.imageView.load(url: unwrappedURL)
         }
     }
     

@@ -163,7 +163,7 @@ extension GaleryViewController: UITableViewDelegate {
 }
 
 extension GaleryViewController: NetworkingManagerDelegate {
-    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: DecodableWithTypeHint) where T : DecodableWithTypeHint {
+    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: Decodable) where T : Decodable {
         DispatchQueue.main.async {
             if let marsRoverModelInstance = decodableModel as? MarsRoverModel{
                 self.marsRoverModel = marsRoverModelInstance

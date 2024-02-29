@@ -22,12 +22,6 @@ struct MarsRoverImagesModel: Codable{
     let rover: MarsRoverInfo
 }
 
-struct MarsRoverModel: DecodableWithTypeHint{
-    var typeHint: NetworkTypeEnum = NetworkTypeEnum.MarsRoverModel
-    
+struct MarsRoverModel: Codable{
     let photos: [MarsRoverImagesModel]
-    
-    private enum CodingKeys: String, CodingKey {
-        case photos
-    }
 }
