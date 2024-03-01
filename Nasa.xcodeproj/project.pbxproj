@@ -10,7 +10,6 @@
 		8D342B7D2B85693100B2DE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342B7C2B85693100B2DE85 /* AppDelegate.swift */; };
 		8D342B7F2B85693100B2DE85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342B7E2B85693100B2DE85 /* SceneDelegate.swift */; };
 		8D342B812B85693100B2DE85 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342B802B85693100B2DE85 /* MainViewController.swift */; };
-		8D342B842B85693100B2DE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D342B822B85693100B2DE85 /* Main.storyboard */; };
 		8D342B862B85693300B2DE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D342B852B85693300B2DE85 /* Assets.xcassets */; };
 		8D342B892B85693300B2DE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D342B872B85693300B2DE85 /* LaunchScreen.storyboard */; };
 		8D342B942B85693300B2DE85 /* NasaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342B932B85693300B2DE85 /* NasaTests.swift */; };
@@ -19,13 +18,12 @@
 		8D342BB02B857BCF00B2DE85 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BAF2B857BCF00B2DE85 /* NetworkingManager.swift */; };
 		8D342BCD2B86149900B2DE85 /* APODModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BCC2B86149900B2DE85 /* APODModel.swift */; };
 		8D342BD12B862A8000B2DE85 /* MarsRoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD02B862A8000B2DE85 /* MarsRoverModel.swift */; };
-		8D342BD42B86806200B2DE85 /* GaleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD32B86806200B2DE85 /* GaleryViewController.swift */; };
-		8D342BD62B86809300B2DE85 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD52B86809300B2DE85 /* PhotoViewController.swift */; };
+		8D342BD42B86806200B2DE85 /* MarsRoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD32B86806200B2DE85 /* MarsRoverViewController.swift */; };
+		8D342BD62B86809300B2DE85 /* APODViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD52B86809300B2DE85 /* APODViewController.swift */; };
 		8D342BD82B8680AA00B2DE85 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD72B8680AA00B2DE85 /* DetailsViewController.swift */; };
+		8D89C6C12B911837007BDD3B /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */; };
 		8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD7682B876CF600506A2C /* UIImageViewExtension.swift */; };
 		8DDDD76B2B88619D00506A2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD76A2B88619D00506A2C /* Constants.swift */; };
-		8DDDD76E2B88629100506A2C /* GaleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD76C2B88629100506A2C /* GaleryTableViewCell.swift */; };
-		8DDDD76F2B88629100506A2C /* GaleryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DDDD76D2B88629100506A2C /* GaleryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +48,6 @@
 		8D342B7C2B85693100B2DE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D342B7E2B85693100B2DE85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8D342B802B85693100B2DE85 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8D342B832B85693100B2DE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D342B852B85693300B2DE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D342B882B85693300B2DE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D342B8A2B85693300B2DE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,13 +59,12 @@
 		8D342BAF2B857BCF00B2DE85 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		8D342BCC2B86149900B2DE85 /* APODModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODModel.swift; sourceTree = "<group>"; };
 		8D342BD02B862A8000B2DE85 /* MarsRoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverModel.swift; sourceTree = "<group>"; };
-		8D342BD32B86806200B2DE85 /* GaleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryViewController.swift; sourceTree = "<group>"; };
-		8D342BD52B86809300B2DE85 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		8D342BD32B86806200B2DE85 /* MarsRoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewController.swift; sourceTree = "<group>"; };
+		8D342BD52B86809300B2DE85 /* APODViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewController.swift; sourceTree = "<group>"; };
 		8D342BD72B8680AA00B2DE85 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
 		8DDDD7682B876CF600506A2C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		8DDDD76A2B88619D00506A2C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8DDDD76C2B88629100506A2C /* GaleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryTableViewCell.swift; sourceTree = "<group>"; };
-		8DDDD76D2B88629100506A2C /* GaleryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GaleryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				8D342B802B85693100B2DE85 /* MainViewController.swift */,
-				8D342BD32B86806200B2DE85 /* GaleryViewController.swift */,
-				8D342BD52B86809300B2DE85 /* PhotoViewController.swift */,
+				8D342BD32B86806200B2DE85 /* MarsRoverViewController.swift */,
+				8D342BD52B86809300B2DE85 /* APODViewController.swift */,
 				8D342BD72B8680AA00B2DE85 /* DetailsViewController.swift */,
 			);
 			path = Controllers;
@@ -164,9 +160,7 @@
 		8D342BAD2B8569D300B2DE85 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8D342B822B85693100B2DE85 /* Main.storyboard */,
-				8DDDD76C2B88629100506A2C /* GaleryTableViewCell.swift */,
-				8DDDD76D2B88629100506A2C /* GaleryTableViewCell.xib */,
+				8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,8 +281,6 @@
 			files = (
 				8D342B892B85693300B2DE85 /* LaunchScreen.storyboard in Resources */,
 				8D342B862B85693300B2DE85 /* Assets.xcassets in Resources */,
-				8D342B842B85693100B2DE85 /* Main.storyboard in Resources */,
-				8DDDD76F2B88629100506A2C /* GaleryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,15 +305,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D342BD62B86809300B2DE85 /* PhotoViewController.swift in Sources */,
-				8D342BD42B86806200B2DE85 /* GaleryViewController.swift in Sources */,
+				8D342BD62B86809300B2DE85 /* APODViewController.swift in Sources */,
+				8D342BD42B86806200B2DE85 /* MarsRoverViewController.swift in Sources */,
 				8D342BD12B862A8000B2DE85 /* MarsRoverModel.swift in Sources */,
 				8D342B812B85693100B2DE85 /* MainViewController.swift in Sources */,
 				8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */,
 				8D342B7D2B85693100B2DE85 /* AppDelegate.swift in Sources */,
-				8DDDD76E2B88629100506A2C /* GaleryTableViewCell.swift in Sources */,
 				8D342B7F2B85693100B2DE85 /* SceneDelegate.swift in Sources */,
 				8D342BB02B857BCF00B2DE85 /* NetworkingManager.swift in Sources */,
+				8D89C6C12B911837007BDD3B /* GalleryTableViewCell.swift in Sources */,
 				8D342BCD2B86149900B2DE85 /* APODModel.swift in Sources */,
 				8D342BD82B8680AA00B2DE85 /* DetailsViewController.swift in Sources */,
 				8DDDD76B2B88619D00506A2C /* Constants.swift in Sources */,
@@ -361,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8D342B822B85693100B2DE85 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8D342B832B85693100B2DE85 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8D342B872B85693300B2DE85 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -511,7 +495,6 @@
 				INFOPLIST_FILE = Nasa/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -539,7 +522,6 @@
 				INFOPLIST_FILE = Nasa/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
