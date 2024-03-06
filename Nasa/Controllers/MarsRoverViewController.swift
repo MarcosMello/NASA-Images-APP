@@ -80,7 +80,7 @@ class MarsRoverViewController: UIViewController {
         }
         
         marsRoverViewModel.callGetEndpoint(networkingManager: marsRoverViewModel.networkingManager, endpoint: "mars-photos/api/v1/rovers/curiosity/photos", queryParameters: queryParameters)
-    } // Apenas reformular para chamar a API no ViewModel?
+    } // TODO: Apenas reformular para chamar a API no ViewModel?
 }
 
 extension MarsRoverViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -102,7 +102,7 @@ extension MarsRoverViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         
         marsRoverView.selectCameraTextField.resignFirstResponder()
     }
-} // Passar inteiro para o ViewModel?
+} // TODO: Passar inteiro para o ViewModel?
 
 extension MarsRoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,7 +127,7 @@ extension MarsRoverViewController: UITableViewDataSource {
         
         return cell
     }
-} // Passar inteiro para o ViewModel?
+} // TODO: Passar inteiro para o ViewModel?
 
 extension MarsRoverViewController: UITableViewDelegate {
     func showDetailsModal(with detailsViewModel: DetailsViewModel){
