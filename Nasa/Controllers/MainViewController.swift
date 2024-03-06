@@ -69,12 +69,15 @@ class MainViewController: UIViewController {
     
     @objc
     func APODButtonTapped() {
-        navigationController?.pushViewController(APODViewController(), animated: true)
+        navigationController?.pushViewController(
+            APODViewController(with: APODViewModel(with: Constants.apodNetworkingManager)),
+            animated: true
+        )
     }
     
     @objc
     func MarsRoverButtonTapped() {
-        navigationController?.pushViewController(MarsRoverViewController(), animated: true)
+        navigationController?.pushViewController(MarsRoverViewController(with: MarsRoverViewModel(with: Constants.marsRoverNetworkingManager)), animated: true)
     }
 }
 

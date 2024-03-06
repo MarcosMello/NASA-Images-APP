@@ -21,6 +21,12 @@
 		8D342BD42B86806200B2DE85 /* MarsRoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD32B86806200B2DE85 /* MarsRoverViewController.swift */; };
 		8D342BD62B86809300B2DE85 /* APODViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD52B86809300B2DE85 /* APODViewController.swift */; };
 		8D342BD82B8680AA00B2DE85 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D342BD72B8680AA00B2DE85 /* DetailsViewController.swift */; };
+		8D44313C2B988D9300E955BA /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44313B2B988D9300E955BA /* DetailsViewModel.swift */; };
+		8D44313E2B98C99900E955BA /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44313D2B98C99900E955BA /* DetailsView.swift */; };
+		8D4431402B98CF1100E955BA /* APODView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D44313F2B98CF1100E955BA /* APODView.swift */; };
+		8D4431422B98D88400E955BA /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4431412B98D88400E955BA /* APODViewModel.swift */; };
+		8D4431442B98E68C00E955BA /* MarsRoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4431432B98E68C00E955BA /* MarsRoverViewModel.swift */; };
+		8D4431462B98FFBF00E955BA /* MarsRoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4431452B98FFBF00E955BA /* MarsRoverView.swift */; };
 		8D89C6C12B911837007BDD3B /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */; };
 		8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD7682B876CF600506A2C /* UIImageViewExtension.swift */; };
 		8DDDD76B2B88619D00506A2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD76A2B88619D00506A2C /* Constants.swift */; };
@@ -62,6 +68,12 @@
 		8D342BD32B86806200B2DE85 /* MarsRoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewController.swift; sourceTree = "<group>"; };
 		8D342BD52B86809300B2DE85 /* APODViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewController.swift; sourceTree = "<group>"; };
 		8D342BD72B8680AA00B2DE85 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8D44313B2B988D9300E955BA /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		8D44313D2B98C99900E955BA /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		8D44313F2B98CF1100E955BA /* APODView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODView.swift; sourceTree = "<group>"; };
+		8D4431412B98D88400E955BA /* APODViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModel.swift; sourceTree = "<group>"; };
+		8D4431432B98E68C00E955BA /* MarsRoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewModel.swift; sourceTree = "<group>"; };
+		8D4431452B98FFBF00E955BA /* MarsRoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverView.swift; sourceTree = "<group>"; };
 		8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
 		8DDDD7682B876CF600506A2C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		8DDDD76A2B88619D00506A2C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -119,6 +131,7 @@
 				8D342B7E2B85693100B2DE85 /* SceneDelegate.swift */,
 				8D342BAE2B8569D800B2DE85 /* Model */,
 				8D342BAD2B8569D300B2DE85 /* View */,
+				8D44313A2B988CFC00E955BA /* ViewModel */,
 				8D342BAC2B8569B600B2DE85 /* Controllers */,
 				8D342B852B85693300B2DE85 /* Assets.xcassets */,
 				8D342B872B85693300B2DE85 /* LaunchScreen.storyboard */,
@@ -161,6 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */,
+				8D44313D2B98C99900E955BA /* DetailsView.swift */,
+				8D44313F2B98CF1100E955BA /* APODView.swift */,
+				8D4431452B98FFBF00E955BA /* MarsRoverView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +189,16 @@
 				8D342BD02B862A8000B2DE85 /* MarsRoverModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8D44313A2B988CFC00E955BA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D44313B2B988D9300E955BA /* DetailsViewModel.swift */,
+				8D4431412B98D88400E955BA /* APODViewModel.swift */,
+				8D4431432B98E68C00E955BA /* MarsRoverViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,16 +332,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D342BD62B86809300B2DE85 /* APODViewController.swift in Sources */,
+				8D4431422B98D88400E955BA /* APODViewModel.swift in Sources */,
+				8D44313E2B98C99900E955BA /* DetailsView.swift in Sources */,
 				8D342BD42B86806200B2DE85 /* MarsRoverViewController.swift in Sources */,
 				8D342BD12B862A8000B2DE85 /* MarsRoverModel.swift in Sources */,
 				8D342B812B85693100B2DE85 /* MainViewController.swift in Sources */,
 				8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */,
 				8D342B7D2B85693100B2DE85 /* AppDelegate.swift in Sources */,
+				8D4431442B98E68C00E955BA /* MarsRoverViewModel.swift in Sources */,
 				8D342B7F2B85693100B2DE85 /* SceneDelegate.swift in Sources */,
+				8D4431462B98FFBF00E955BA /* MarsRoverView.swift in Sources */,
 				8D342BB02B857BCF00B2DE85 /* NetworkingManager.swift in Sources */,
 				8D89C6C12B911837007BDD3B /* GalleryTableViewCell.swift in Sources */,
+				8D4431402B98CF1100E955BA /* APODView.swift in Sources */,
 				8D342BCD2B86149900B2DE85 /* APODModel.swift in Sources */,
 				8D342BD82B8680AA00B2DE85 /* DetailsViewController.swift in Sources */,
+				8D44313C2B988D9300E955BA /* DetailsViewModel.swift in Sources */,
 				8DDDD76B2B88619D00506A2C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

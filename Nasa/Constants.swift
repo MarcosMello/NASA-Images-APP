@@ -1,6 +1,13 @@
 import UIKit
 
 struct Constants {
+    //MARK: Defaults Networking Managers
+    static var apodNetworkingManager = NetworkingManager<APODModel>(baseURL: "https://api.nasa.gov/")
+    static var marsRoverNetworkingManager = NetworkingManager<MarsRoverModel>(baseURL: "https://api.nasa.gov/")
+    
+    //MARK: API KEYS
+    static let nasaApiKey: String = ProcessInfo.processInfo.environment["NASA_API_KEY"] ?? "DEMO_KEY"
+    
     //MARK: Images
     static let nasaLogo: UIImage? = UIImage(named: "NasaLogo")
     
@@ -42,5 +49,6 @@ struct Constants {
     
     static let componentsOfGaleryViewUIPicker: Int = 1
     
-    static let allCameraOption: String = "All"
+    static let allCamerasOption: String = "All"
+    static let marsRoverAllCamerasOption: MarsRoverCameraModel = MarsRoverCameraModel(name: Constants.allCamerasOption, full_name: Constants.allCamerasOption)
 }
