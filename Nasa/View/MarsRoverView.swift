@@ -34,6 +34,7 @@ class MarsRoverView: UIView {
     let selectCameraTextField: UITextField = {
         let textField: UITextField = UITextField()
         
+        textField.text = Constants.allCamerasOption
         textField.textAlignment = .right
         
         return textField
