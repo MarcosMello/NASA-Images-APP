@@ -28,6 +28,7 @@
 		8D4431442B98E68C00E955BA /* MarsRoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4431432B98E68C00E955BA /* MarsRoverViewModel.swift */; };
 		8D4431462B98FFBF00E955BA /* MarsRoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4431452B98FFBF00E955BA /* MarsRoverView.swift */; };
 		8D89C6C12B911837007BDD3B /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */; };
+		8D99274D2B9A3536005BCEE5 /* GalleryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99274C2B9A3536005BCEE5 /* GalleryTableViewCellViewModel.swift */; };
 		8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD7682B876CF600506A2C /* UIImageViewExtension.swift */; };
 		8DDDD76B2B88619D00506A2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDDD76A2B88619D00506A2C /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		8D4431432B98E68C00E955BA /* MarsRoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewModel.swift; sourceTree = "<group>"; };
 		8D4431452B98FFBF00E955BA /* MarsRoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverView.swift; sourceTree = "<group>"; };
 		8D89C6C02B911837007BDD3B /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
+		8D99274C2B9A3536005BCEE5 /* GalleryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		8DDDD7682B876CF600506A2C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		8DDDD76A2B88619D00506A2C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				8D44313B2B988D9300E955BA /* DetailsViewModel.swift */,
 				8D4431412B98D88400E955BA /* APODViewModel.swift */,
 				8D4431432B98E68C00E955BA /* MarsRoverViewModel.swift */,
+				8D99274C2B9A3536005BCEE5 /* GalleryTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				8D342BD12B862A8000B2DE85 /* MarsRoverModel.swift in Sources */,
 				8D342B812B85693100B2DE85 /* MainViewController.swift in Sources */,
 				8DDDD7692B876CF600506A2C /* UIImageViewExtension.swift in Sources */,
+				8D99274D2B9A3536005BCEE5 /* GalleryTableViewCellViewModel.swift in Sources */,
 				8D342B7D2B85693100B2DE85 /* AppDelegate.swift in Sources */,
 				8D4431442B98E68C00E955BA /* MarsRoverViewModel.swift in Sources */,
 				8D342B7F2B85693100B2DE85 /* SceneDelegate.swift in Sources */,

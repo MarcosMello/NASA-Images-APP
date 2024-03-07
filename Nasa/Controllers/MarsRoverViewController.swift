@@ -69,18 +69,8 @@ class MarsRoverViewController: UIViewController {
     
     @objc
     func filterButtonTapped(_ sender: UIButton) {
-        let earth_date = Constants.dateFormatter.string(from: marsRoverView.datePicker.date)
-        
-        var queryParameters = ["earth_date=\(earth_date)", "page=\(marsRoverViewModel.page)"]
-        
-        if let selectedCamera = marsRoverView.selectCameraTextField.text {
-            if (selectedCamera != Constants.allCamerasOption) {
-                queryParameters.append("camera=\(selectedCamera)")
-            }
-        }
-        
-        marsRoverViewModel.callGetEndpoint(networkingManager: marsRoverViewModel.networkingManager, endpoint: "mars-photos/api/v1/rovers/curiosity/photos", queryParameters: queryParameters)
-    } // TODO: Apenas reformular para chamar a API no ViewModel?
+        marsRoverViewModel.getDataFromAPI(earth_date: marsRoverView.datePicker.date, camera: marsRoverView.selectCameraTextField.text)
+    }
 }
 
 extension MarsRoverViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -90,7 +80,7 @@ extension MarsRoverViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return marsRoverViewModel.marsRoversCameras?.count ?? 0
+        return marsRoverViewModel.marsRoversCamerasLength
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -102,32 +92,29 @@ extension MarsRoverViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         
         marsRoverView.selectCameraTextField.resignFirstResponder()
     }
-} // TODO: Passar inteiro para o ViewModel?
+}
 
 extension MarsRoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return marsRoverViewModel.marsRoverImages?.count ?? 0
+        return marsRoverViewModel.marsRoverImagesLength
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GalleryTableViewCell.identifier, for: indexPath) as! GalleryTableViewCell
         
-        if let urlString = (marsRoverViewModel.marsRoverImages?[indexPath.row])?.img_src, let url = URL(string: urlString){
-            
-            if var comps = URLComponents(url: url, resolvingAgainstBaseURL: false){
-                comps.scheme = "https"
-                
-                if let safeURL = comps.url{
-                    cell.marsRoverImageView.load(url: safeURL)
-                }
-            }
+        let galleryTableViewCellViewModel: GalleryTableViewCellViewModel = GalleryTableViewCellViewModel(with:      marsRoverViewModel.marsRoverImages?[indexPath.row])
+        
+        cell.marsRoverImageView.image = Constants.nasaLogo
+        
+        if let img_url = galleryTableViewCellViewModel.img_url {
+            cell.marsRoverImageView.load(url: img_url)
         }
         
-        cell.descriptionLabel.text = "\((marsRoverViewModel.marsRoverImages?[indexPath.row])?.camera.name ?? "") @ \((marsRoverViewModel.marsRoverImages?[indexPath.row])?.earth_date ?? "")"
+        cell.descriptionLabel.text = galleryTableViewCellViewModel.descriptionLabelText
         
         return cell
     }
-} // TODO: Passar inteiro para o ViewModel?
+}
 
 extension MarsRoverViewController: UITableViewDelegate {
     func showDetailsModal(with detailsViewModel: DetailsViewModel){

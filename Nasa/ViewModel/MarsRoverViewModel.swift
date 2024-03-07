@@ -12,12 +12,18 @@ class MarsRoverViewModel {
     var marsRoverImages: [MarsRoverImagesModel]? {
         return self.marsRoverModel?.photos
     }
+    var marsRoverImagesLength: Int {
+        return self.marsRoverImages?.count ?? 0
+    }
     
     var page: Int = 0
     
     var marsRoversCameraOptions : [MarsRoverCameraModel]?
     var marsRoversCameras: [MarsRoverCameraModel]? {
         return [Constants.marsRoverAllCamerasOption] + (marsRoversCameraOptions ?? [])
+    }
+    var marsRoversCamerasLength: Int {
+        return self.marsRoversCameras?.count ?? 0
     }
     
     var pageIndicator: String {
@@ -40,6 +46,18 @@ class MarsRoverViewModel {
         self.page = self.page + updateAmount > 0 ? self.page + updateAmount : 1
         
         self.onPageChange?(pageIndicator)
+    }
+    
+    func getDataFromAPI(earth_date: Date, camera: String?){
+        var queryParameters = ["earth_date=\(earth_date)", "page=\(self.page)"]
+        
+        if let selectedCamera = camera {
+            if (selectedCamera != Constants.allCamerasOption) {
+                queryParameters.append("camera=\(selectedCamera)")
+            }
+        }
+        
+        self.callGetEndpoint(networkingManager: self.networkingManager, endpoint: "mars-photos/api/v1/rovers/curiosity/photos", queryParameters: queryParameters)
     }
 }
 
