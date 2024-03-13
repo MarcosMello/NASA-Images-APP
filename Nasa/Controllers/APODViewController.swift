@@ -27,21 +27,27 @@ class APODViewController: UIViewController {
         
         setupButtonsActions()
         
-        apodViewModel.callAPODEndpoint()
-        
-        self.apodViewModel.onImageTitleChange = { [weak self] imageTitle in
-            DispatchQueue.main.async {
-                self?.apodView.imageTitleLabel.text = imageTitle
+        getDataFromAPI()
+    }
+    
+    func getDataFromAPI(with: String? = nil){
+        apodViewModel.getDataFromAPI(with: with) { [weak self] result in
+            guard let self = self else {
+                return
             }
-        }
-        self.apodViewModel.onExplanationChange = { [weak self] explanation in
-            DispatchQueue.main.async {
-                self?.apodView.explanationTextView.text = explanation
-            }
-        }
-        self.apodViewModel.onImageURLChange = { [weak self] imageURL in
-            DispatchQueue.main.async {
-                self?.apodView.imageView.load(url: imageURL)
+            
+            switch result{
+            case .success(_):
+                guard let model = self.apodViewModel.model else {
+                    print("Could not unwrap model")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.apodView.setupUI(with: model)
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -52,6 +58,6 @@ class APODViewController: UIViewController {
     
     @objc
     func searchButtonTapped(_ sender: UIButton) {
-        apodViewModel.callAPODEndpoint(with: Constants.dateFormatter.string(from: apodView.datePicker.date))
+        getDataFromAPI(with: Constants.dateFormatter.string(from: apodView.datePicker.date))
     }
 }

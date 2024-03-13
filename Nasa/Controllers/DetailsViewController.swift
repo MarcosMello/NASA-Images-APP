@@ -21,7 +21,6 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailsView.titleLabel.text = detailsViewModel.imageTitle
-        detailsView.imageView.image = detailsViewModel.image
+        detailsView.setupUI(title: detailsViewModel.imageTitle, image: detailsViewModel.image)
     }
 }

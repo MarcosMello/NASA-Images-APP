@@ -1,24 +1,22 @@
 import UIKit
 
 class MarsRoverViewModel {
+    let endpoint: String = "mars-photos/api/v1/rovers/curiosity/photos"
+    
     var networkingManager: NetworkingManager<MarsRoverModel>
     
-    var onPageChange: ((String) -> (Void))?
-    var onDatePickerMinimumDateChange: ((Date) -> (Void))?
-    var onDatePickerMaximumDateChange: ((Date) -> (Void))?
-    var onTableViewNeedsReload: (() -> (Void))?
+    var model: MarsRoverModel?
     
-    var marsRoverModel: MarsRoverModel?
     var marsRoverImages: [MarsRoverImagesModel]? {
-        return self.marsRoverModel?.photos
+        return self.model?.photos
     }
     var marsRoverImagesLength: Int {
         return self.marsRoverImages?.count ?? 0
     }
     
-    var page: Int = 0
-    
-    var marsRoversCameraOptions : [MarsRoverCameraModel]?
+    var marsRoversCameraOptions : [MarsRoverCameraModel]? {
+        return self.model?.photos.first?.rover.cameras
+    }
     var marsRoversCameras: [MarsRoverCameraModel]? {
         return [Constants.marsRoverAllCamerasOption] + (marsRoversCameraOptions ?? [])
     }
@@ -26,76 +24,64 @@ class MarsRoverViewModel {
         return self.marsRoversCameras?.count ?? 0
     }
     
+    var minimumDate: Date? {
+        let stringDate: String? = model?.photos.first?.rover.landing_date
+        
+        guard let stringDate = stringDate else {
+            return nil
+        }
+        
+        return Constants.dateFormatter.date(from: stringDate)
+    }
+    var maximumDate: Date? {
+        let stringDate: String? = model?.photos.first?.rover.max_date
+        
+        guard let stringDate = stringDate else {
+            return nil
+        }
+        
+        return Constants.dateFormatter.date(from: stringDate)
+    }
+    
+    var page: Int = 1
     var pageIndicator: String {
         return "Página \(self.page)"
     }
     
     init(with networkingManager: NetworkingManager<MarsRoverModel>){
         self.networkingManager = networkingManager
-        
-        self.networkingManager.delegate = self
-        
-        callGetEndpoint(
-            networkingManager: self.networkingManager,
-            endpoint: "mars-photos/api/v1/rovers/curiosity/photos",
-            queryParameters: ["sol=0", "page=1", "api_key=\(Constants.nasaApiKey)"]
-        )
     }
     
     func updatePageIndicator(with updateAmount: Int){
         self.page = self.page + updateAmount > 0 ? self.page + updateAmount : 1
-        
-        self.onPageChange?(pageIndicator)
     }
     
-    func getDataFromAPI(earth_date: Date, camera: String?){
-        var queryParameters = ["earth_date=\(earth_date)", "page=\(self.page)"]
+    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, queryParameters: [String]? = nil, completion: @escaping (Result<Bool, NetworkingManagerError>) -> Void){
+        var queryParameters: [String]? = queryParameters
         
-        if let selectedCamera = camera {
-            if (selectedCamera != Constants.allCamerasOption) {
-                queryParameters.append("camera=\(selectedCamera)")
-            }
-        }
-        
-        self.callGetEndpoint(networkingManager: self.networkingManager, endpoint: "mars-photos/api/v1/rovers/curiosity/photos", queryParameters: queryParameters)
-    }
-}
-
-extension MarsRoverViewModel: NetworkingManagerDelegate {
-    func callGetEndpoint<T>(networkingManager: NetworkingManager<T>, endpoint: String, queryParameters: [String]? = nil){
-        
-        let url = networkingManager.prepareURL(endpoint: endpoint, apiKey: Constants.nasaApiKey, queryParameters: queryParameters)
-        
-        if let unwrappedURL = url {
-            networkingManager.getTask(with: unwrappedURL)
-        }
-        
-        return
-    }
-    
-    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: Decodable) where T : Decodable {
-        DispatchQueue.main.async {
-            if let marsRoverModelInstance = decodableModel as? MarsRoverModel{
-                self.marsRoverModel = marsRoverModelInstance
-                
-                if !marsRoverModelInstance.photos.isEmpty {
-                    let minimumDate = Constants.dateFormatter.date(from: marsRoverModelInstance.photos[0].rover.landing_date)
-                    let maximumDate = Constants.dateFormatter.date(from: marsRoverModelInstance.photos[0].rover.max_date)
-                    
-                    if let unwrappedMinimumDate = minimumDate, let unwrappedMaximumDate = maximumDate {
-                        self.onDatePickerMinimumDateChange?(unwrappedMinimumDate)
-                        self.onDatePickerMaximumDateChange?(unwrappedMaximumDate)
-                    }
-                    
-                    self.marsRoversCameraOptions = marsRoverModelInstance.photos[0].rover.cameras
-                }
+        if queryParameters == nil {
+            queryParameters = ["page=\(self.page)"]
+            
+            if let selectedEarthDate = earthDate {
+                queryParameters?.append("earth_date=\(selectedEarthDate)")
             }
             
-            self.onTableViewNeedsReload?()
+            if let selectedCamera = camera {
+                if (selectedCamera != Constants.allCamerasOption) {
+                    queryParameters?.append("camera=\(selectedCamera)")
+                }
+            }
         }
-    }
-    
-    func onFail(with error: Error) {
-        print(error)
+        
+        networkingManager.getTask(endpoint: endpoint, queryParameters: queryParameters) { result in
+            switch result{
+            case .success(let model):
+                self.model = model
+                
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

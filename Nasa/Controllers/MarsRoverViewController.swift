@@ -31,24 +31,9 @@ class MarsRoverViewController: UIViewController {
         marsRoverView.cameraPickerView.delegate = self
         marsRoverView.cameraPickerView.dataSource = self
         
-        marsRoverView.selectCameraTextField.inputView = marsRoverView.cameraPickerView
-        
-        marsRoverView.tableView.register(GalleryTableViewCell.self, forCellReuseIdentifier: GalleryTableViewCell.identifier)
-        
-        marsRoverViewModel.onPageChange = { pageIndicatorText in
-            self.marsRoverView.pageIndicatorLabel.text = pageIndicatorText
-        }
-        marsRoverViewModel.onDatePickerMinimumDateChange = { minimumDate in
-            self.marsRoverView.datePicker.minimumDate = minimumDate
-        }
-        marsRoverViewModel.onDatePickerMaximumDateChange = { maximumDate in
-            self.marsRoverView.datePicker.maximumDate = maximumDate
-        }
-        marsRoverViewModel.onTableViewNeedsReload = {
-            self.marsRoverView.tableView.reloadData()
-        }
-        
         setupButtonsActions()
+        
+        getDataFromAPI(queryParameters: ["sol=0", "page=1", "api_key=\(Constants.nasaApiKey)"])
     }
     
     func setupButtonsActions() {
@@ -60,16 +45,45 @@ class MarsRoverViewController: UIViewController {
     @objc
     func NextPageButtonTapped(_ sender: UIButton) {
         marsRoverViewModel.updatePageIndicator(with: 1)
+        
+        marsRoverView.updatePageIndicator(pageIndicatorText: marsRoverViewModel.pageIndicator)
     }
     
     @objc
     func PreviousPageButtonTapped(_ sender: UIButton) {
         marsRoverViewModel.updatePageIndicator(with: -1)
+        
+        marsRoverView.updatePageIndicator(pageIndicatorText: marsRoverViewModel.pageIndicator)
     }
     
     @objc
     func filterButtonTapped(_ sender: UIButton) {
-        marsRoverViewModel.getDataFromAPI(earth_date: marsRoverView.datePicker.date, camera: marsRoverView.selectCameraTextField.text)
+        getDataFromAPI(
+            earthDate: marsRoverView.datePicker.date,
+            camera: marsRoverView.selectCameraTextField.text
+        )
+    }
+    
+    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, queryParameters: [String]? = nil){
+        marsRoverViewModel.getDataFromAPI(
+            earthDate: earthDate,
+            camera: camera,
+            queryParameters: queryParameters
+        ) { result in
+            
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.marsRoverView.setupUI(
+                        pageIndicatorText: self.marsRoverViewModel.pageIndicator,
+                        minimumDate: self.marsRoverViewModel.minimumDate,
+                        maximumDate: self.marsRoverViewModel.maximumDate
+                    )
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
@@ -102,15 +116,14 @@ extension MarsRoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GalleryTableViewCell.identifier, for: indexPath) as! GalleryTableViewCell
         
-        let galleryTableViewCellViewModel: GalleryTableViewCellViewModel = GalleryTableViewCellViewModel(with:      marsRoverViewModel.marsRoverImages?[indexPath.row])
+        let galleryTableViewCellViewModel: GalleryTableViewCellViewModel = GalleryTableViewCellViewModel(
+            with: marsRoverViewModel.marsRoverImages?[indexPath.row]
+        )
         
-        cell.marsRoverImageView.image = Constants.nasaLogo
-        
-        if let img_url = galleryTableViewCellViewModel.img_url {
-            cell.marsRoverImageView.load(url: img_url)
-        }
-        
-        cell.descriptionLabel.text = galleryTableViewCellViewModel.descriptionLabelText
+        cell.setupUI(
+            imgUrl: galleryTableViewCellViewModel.imgUrl,
+            descriptionLabelText: galleryTableViewCellViewModel.descriptionLabelText
+        )
         
         return cell
     }

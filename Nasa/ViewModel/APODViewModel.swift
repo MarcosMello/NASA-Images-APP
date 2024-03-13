@@ -1,52 +1,36 @@
 import Foundation
 
 class APODViewModel{
-    var onImageTitleChange: ((String) -> (Void))?
-    var onExplanationChange: ((String) -> (Void))?
-    var onImageURLChange: ((URL) -> (Void))?
+    let endpoint: String = "planetary/apod"
+    
+    var model: APODModel?
     
     var networkingManager: NetworkingManager<APODModel>
     
     init(with networkingManager: NetworkingManager<APODModel>){
         self.networkingManager = networkingManager
-        
-        self.networkingManager.delegate = self
     }
     
-    func callAPODEndpoint(with date: String? = nil){
-        var url: String? = networkingManager.prepareURL(endpoint: "planetary/apod", apiKey: Constants.nasaApiKey)
+    func getDataFromAPI(with date: String? = nil, completion: @escaping (Result<Bool, NetworkingManagerError>) -> Void){
+        var queryParameters: [String]? = nil
         
         if let date = date {
-            url = networkingManager.prepareURL(endpoint: "planetary/apod", apiKey: Constants.nasaApiKey, queryParameters: ["date=\(date)"])
+            queryParameters = ["date=\(date)"]
         }
-          
-        if let unwrappedURL = url{
-            networkingManager.getTask(with: unwrappedURL)
-        }
-    }
-}
-
-extension APODViewModel: NetworkingManagerDelegate {
-    func onSuccess<T>(_ networkingMaganer: NetworkingManager<T>, with decodableModel: Decodable) where T : Decodable {
-        DispatchQueue.main.async {
-            let APODModelInstance = decodableModel as? APODModel
-            
-            guard let unwrappedAPODModelInstance = APODModelInstance else {
+        
+        networkingManager.getTask(endpoint: self.endpoint, queryParameters: queryParameters) { [weak self] result in
+            guard let self = self else {
                 return
             }
             
-            self.onImageTitleChange?(unwrappedAPODModelInstance.title)
-            self.onExplanationChange?(unwrappedAPODModelInstance.explanation)
-            
-            let url = URL(string: unwrappedAPODModelInstance.hdurl ?? unwrappedAPODModelInstance.url)
-            
-            if let unwrappedURL = url{
-                self.onImageURLChange?(unwrappedURL)
+            switch result{
+            case .success(let model):
+                self.model = model
+                
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
-    }
-    
-    func onFail(with error: Error) {
-        print(error)
     }
 }

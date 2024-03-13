@@ -5,7 +5,7 @@ class GalleryTableViewCellViewModel {
     let cameraName: String?
     let earth_date: String?
     
-    var img_url: URL? {
+    var imgUrl: URL? {
         if let urlString = self.img_src,
            let url = URL(string: urlString),
            var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) {
