@@ -143,4 +143,15 @@ class APODView: UIView {
         
         startUI()
     }
+    
+    func setupUI(with model: APODModel){
+        self.imageTitleLabel.text = model.title
+        self.explanationTextView.text = model.explanation
+        
+        self.imageView.image = Constants.nasaLogo
+        
+        if let url = URL(string: model.hdurl ?? model.url) {
+            self.imageView.load(url: url)
+        }
+    }
 }

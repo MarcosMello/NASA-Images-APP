@@ -171,6 +171,10 @@ class MarsRoverView: UIView {
         
         mainStackView.addArrangedSubview(filterStackView)
         mainStackView.addArrangedSubview(tableView)
+        
+        self.selectCameraTextField.inputView = self.cameraPickerView
+        
+        self.tableView.register(GalleryTableViewCell.self, forCellReuseIdentifier: GalleryTableViewCell.identifier)
     }
     
     override init(frame: CGRect) {
@@ -183,5 +187,25 @@ class MarsRoverView: UIView {
         super.init(coder: coder)
         
         startUI()
+    }
+    
+    func updatePageIndicator(pageIndicatorText: String){
+        self.pageIndicatorLabel.text = pageIndicatorText
+    }
+    
+    func setupUI(pageIndicatorText: String? = nil, minimumDate: Date? = nil, maximumDate: Date? = nil){
+        if let pageIndicatorText = pageIndicatorText{
+            updatePageIndicator(pageIndicatorText: pageIndicatorText)
+        }
+        
+        if let minimumDate = minimumDate {
+            self.datePicker.minimumDate = minimumDate
+        }
+        
+        if let maximumDate = maximumDate {
+            self.datePicker.maximumDate = maximumDate
+        }
+        
+        self.tableView.reloadData()
     }
 }

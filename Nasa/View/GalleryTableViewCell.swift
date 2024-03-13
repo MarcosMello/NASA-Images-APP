@@ -18,7 +18,7 @@ class GalleryTableViewCell: UITableViewCell {
         return label
     }()
     
-    func setupUI() {
+    func startUI() {
         let stackView: UIStackView = UIStackView()
         
         self.contentView.addSubview(stackView)
@@ -42,10 +42,20 @@ class GalleryTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setupUI()
+        startUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    func setupUI(imgUrl: URL?, descriptionLabelText: String?){
+        self.marsRoverImageView.image = Constants.nasaLogo
+        
+        if let imgUrl = imgUrl {
+            self.marsRoverImageView.load(url: imgUrl)
+        }
+        
+        self.descriptionLabel.text = descriptionLabelText
     }
 }

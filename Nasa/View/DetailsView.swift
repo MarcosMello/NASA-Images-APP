@@ -48,4 +48,9 @@ class DetailsView: UIView {
         
         startUI()
     }
+    
+    func setupUI(title: String?, image: UIImage?){
+        self.titleLabel.text = title
+        self.imageView.image = image
+    }
 }
