@@ -52,9 +52,7 @@ class GalleryTableViewCell: UITableViewCell {
     func setupUI(imgUrl: URL?, descriptionLabelText: String?){
         self.marsRoverImageView.image = Constants.nasaLogo
         
-        if let imgUrl = imgUrl {
-            self.marsRoverImageView.load(url: imgUrl)
-        }
+        self.marsRoverImageView.load(url: imgUrl)
         
         self.descriptionLabel.text = descriptionLabelText
     }

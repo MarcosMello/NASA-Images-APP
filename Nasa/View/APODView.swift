@@ -150,8 +150,6 @@ class APODView: UIView {
         
         self.imageView.image = Constants.nasaLogo
         
-        if let url = URL(string: model.hdurl ?? model.url) {
-            self.imageView.load(url: url)
-        }
+        self.imageView.load(url: URL(string: model.hdurl ?? model.url))
     }
 }

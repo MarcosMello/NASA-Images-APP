@@ -33,7 +33,7 @@ class MarsRoverViewController: UIViewController {
         
         setupButtonsActions()
         
-        getDataFromAPI(queryParameters: ["sol=0", "page=1", "api_key=\(Constants.nasaApiKey)"])
+        getDataFromAPI(sol: 0)
     }
     
     func setupButtonsActions() {
@@ -46,14 +46,14 @@ class MarsRoverViewController: UIViewController {
     func NextPageButtonTapped(_ sender: UIButton) {
         marsRoverViewModel.updatePageIndicator(with: 1)
         
-        marsRoverView.updatePageIndicator(pageIndicatorText: marsRoverViewModel.pageIndicator)
+        marsRoverView.setupUI(pageIndicatorText: marsRoverViewModel.pageIndicator)
     }
     
     @objc
     func PreviousPageButtonTapped(_ sender: UIButton) {
         marsRoverViewModel.updatePageIndicator(with: -1)
         
-        marsRoverView.updatePageIndicator(pageIndicatorText: marsRoverViewModel.pageIndicator)
+        marsRoverView.setupUI(pageIndicatorText: marsRoverViewModel.pageIndicator)
     }
     
     @objc
@@ -64,17 +64,16 @@ class MarsRoverViewController: UIViewController {
         )
     }
     
-    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, queryParameters: [String]? = nil){
+    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, sol: Int? = nil, page: Int = Constants.initialPageNumber){
         marsRoverViewModel.getDataFromAPI(
             earthDate: earthDate,
             camera: camera,
-            queryParameters: queryParameters
+            page: page
         ) { result in
-            
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.marsRoverView.setupUI(
+                    self.marsRoverView.setupUIAndReloadTableView(
                         pageIndicatorText: self.marsRoverViewModel.pageIndicator,
                         minimumDate: self.marsRoverViewModel.minimumDate,
                         maximumDate: self.marsRoverViewModel.maximumDate

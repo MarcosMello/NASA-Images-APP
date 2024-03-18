@@ -56,20 +56,22 @@ class MarsRoverViewModel {
         self.page = self.page + updateAmount > 0 ? self.page + updateAmount : 1
     }
     
-    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, queryParameters: [String]? = nil, completion: @escaping (Result<Bool, NetworkingManagerError>) -> Void){
-        var queryParameters: [String]? = queryParameters
+    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, sol: Int? = nil, page: Int, completion: @escaping (Result<Bool, NetworkingManagerError>) -> Void){
+        var queryParameters: [String] = []
+
+        queryParameters = ["page=\(self.page)"]
         
-        if queryParameters == nil {
-            queryParameters = ["page=\(self.page)"]
-            
-            if let selectedEarthDate = earthDate {
-                queryParameters?.append("earth_date=\(selectedEarthDate)")
-            }
-            
-            if let selectedCamera = camera {
-                if (selectedCamera != Constants.allCamerasOption) {
-                    queryParameters?.append("camera=\(selectedCamera)")
-                }
+        if let selectedSol = sol {
+            queryParameters.append("sol=\(selectedSol)")
+        }
+        
+        if let selectedEarthDate = earthDate {
+            queryParameters.append("earth_date=\(selectedEarthDate)")
+        }
+        
+        if let selectedCamera = camera {
+            if (selectedCamera != Constants.allCamerasOption) {
+                queryParameters.append("camera=\(selectedCamera)")
             }
         }
         

@@ -31,25 +31,7 @@ class APODViewController: UIViewController {
     }
     
     func getDataFromAPI(with: String? = nil){
-        apodViewModel.getDataFromAPI(with: with) { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            
-            switch result{
-            case .success(_):
-                guard let model = self.apodViewModel.model else {
-                    print("Could not unwrap model")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.apodView.setupUI(with: model)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        apodViewModel.getDataFromAPI(with: with)
     }
     
     func setupButtonsActions() {

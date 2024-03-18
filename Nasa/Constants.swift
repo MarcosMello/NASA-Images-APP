@@ -40,12 +40,14 @@ struct Constants {
     
     static let APODMinimumDate: String = "1995-06-20"
     
-    //MARK: GalleryViewController
+    //MARK: MarsRoverViewController
+    static let initialPageNumber: Int = 1
+    
     static let marsRoverViewTitle: String = "Fotos pelo Mars Rover"
     static let marsRoverSearchButtonTitle: String = "Filtrar"
     static let marsRoverDatePickerLabelText: String = "Selecione uma data:"
     static let marsRoverSelectCameraLabelText: String = "Selecione a camera:"
-    static let marsRoverPageDefaultText: String = "Página 1"
+    static let marsRoverPageDefaultText: String = "Página \(initialPageNumber)"
     
     static let componentsOfGaleryViewUIPicker: Int = 1
     
