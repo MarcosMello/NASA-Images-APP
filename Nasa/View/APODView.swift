@@ -145,11 +145,13 @@ class APODView: UIView {
     }
     
     func setupUI(with model: APODModel){
-        self.imageTitleLabel.text = model.title
-        self.explanationTextView.text = model.explanation
-        
-        self.imageView.image = Constants.nasaLogo
-        
-        self.imageView.load(url: URL(string: model.hdurl ?? model.url))
+        DispatchQueue.main.async {
+            self.imageTitleLabel.text = model.title
+            self.explanationTextView.text = model.explanation
+            
+            self.imageView.image = Constants.nasaLogo
+            
+            self.imageView.load(url: URL(string: model.hdurl ?? model.url))
+        }
     }
 }

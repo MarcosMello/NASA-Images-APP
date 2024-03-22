@@ -4,6 +4,7 @@ class APODViewModel{
     let endpoint: String = "planetary/apod"
     
     var model: APODModel?
+    var error: NetworkingManagerError?
     
     var networkingManager: NetworkingManager<APODModel>
     
@@ -11,7 +12,7 @@ class APODViewModel{
         self.networkingManager = networkingManager
     }
     
-    func getDataFromAPI(with date: String? = nil) {
+    func getDataFromAPI(with date: String? = nil, completion: @escaping (Bool) -> Void) {
         var queryParameters: [String]? = nil
         
         if let date = date {
@@ -26,8 +27,12 @@ class APODViewModel{
             switch result{
             case .success(let model):
                 self.model = model
+                
+                completion(true)
             case .failure(let error):
-                print(error)
+                self.error = error
+                
+                completion(false)
             }
         }
     }

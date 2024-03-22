@@ -31,7 +31,26 @@ class APODViewController: UIViewController {
     }
     
     func getDataFromAPI(with: String? = nil){
-        apodViewModel.getDataFromAPI(with: with)
+        apodViewModel.getDataFromAPI(with: with){ [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            switch result{
+            case true:
+                guard let model = self.apodViewModel.model else {
+                    return
+                }
+
+                self.apodView.setupUI(with: model)
+            case false:
+                guard let error = self.apodViewModel.error else {
+                    return
+                }
+                
+                print(error)
+            }
+        }
     }
     
     func setupButtonsActions() {

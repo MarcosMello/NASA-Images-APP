@@ -189,23 +189,23 @@ class MarsRoverView: UIView {
         startUI()
     }
     
-    func setupUI(pageIndicatorText: String? = nil, minimumDate: Date? = nil, maximumDate: Date? = nil){
-        if let pageIndicatorText = pageIndicatorText{
-            self.pageIndicatorLabel.text = pageIndicatorText
+    func setupUI(pageIndicatorText: String? = nil, minimumDate: Date? = nil, maximumDate: Date? = nil, shouldReloadTable: Bool = false){
+        DispatchQueue.main.async {
+            if let pageIndicatorText = pageIndicatorText{
+                self.pageIndicatorLabel.text = pageIndicatorText
+            }
+            
+            if let minimumDate = minimumDate {
+                self.datePicker.minimumDate = minimumDate
+            }
+            
+            if let maximumDate = maximumDate {
+                self.datePicker.maximumDate = maximumDate
+            }
+            
+            if shouldReloadTable {
+                self.tableView.reloadData()
+            }
         }
-        
-        if let minimumDate = minimumDate {
-            self.datePicker.minimumDate = minimumDate
-        }
-        
-        if let maximumDate = maximumDate {
-            self.datePicker.maximumDate = maximumDate
-        }
-    }
-    
-    func setupUIAndReloadTableView(pageIndicatorText: String? = nil, minimumDate: Date? = nil, maximumDate: Date? = nil){
-        setupUI(pageIndicatorText: pageIndicatorText, minimumDate: minimumDate, maximumDate: maximumDate)
-        
-        self.tableView.reloadData()
     }
 }

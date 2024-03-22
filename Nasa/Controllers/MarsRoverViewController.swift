@@ -68,18 +68,26 @@ class MarsRoverViewController: UIViewController {
         marsRoverViewModel.getDataFromAPI(
             earthDate: earthDate,
             camera: camera,
+            sol: sol,
             page: page
-        ) { result in
+        ) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
             switch result {
-            case .success(_):
-                DispatchQueue.main.async {
-                    self.marsRoverView.setupUIAndReloadTableView(
-                        pageIndicatorText: self.marsRoverViewModel.pageIndicator,
-                        minimumDate: self.marsRoverViewModel.minimumDate,
-                        maximumDate: self.marsRoverViewModel.maximumDate
-                    )
+            case true:
+                self.marsRoverView.setupUI(
+                    pageIndicatorText: self.marsRoverViewModel.pageIndicator,
+                    minimumDate: self.marsRoverViewModel.minimumDate,
+                    maximumDate: self.marsRoverViewModel.maximumDate,
+                    shouldReloadTable: true
+                )
+            case false:
+                guard let error = self.marsRoverViewModel.error else {
+                    return
                 }
-            case .failure(let error):
+                
                 print(error)
             }
         }

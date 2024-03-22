@@ -2,7 +2,7 @@ import Foundation
 
 enum NetworkingManagerError: Error {
     case baseUrlIsNIL
-    case urlCouldBeFormed
+    case urlCouldNotBeFormed
     case requestError(error: Error)
     case dataIsNIL
     case responseCouldNotBeParsed
@@ -32,7 +32,7 @@ struct NetworkingManager<T: Decodable> {
         }
         
         guard let url = URL(string: urlString) else {
-            completion(.failure(NetworkingManagerError.urlCouldBeFormed))
+            completion(.failure(NetworkingManagerError.urlCouldNotBeFormed))
             return
         }
         

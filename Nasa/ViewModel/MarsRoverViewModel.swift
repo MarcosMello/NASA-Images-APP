@@ -6,6 +6,7 @@ class MarsRoverViewModel {
     var networkingManager: NetworkingManager<MarsRoverModel>
     
     var model: MarsRoverModel?
+    var error: NetworkingManagerError?
     
     var marsRoverImages: [MarsRoverImagesModel]? {
         return self.model?.photos
@@ -56,7 +57,7 @@ class MarsRoverViewModel {
         self.page = self.page + updateAmount > 0 ? self.page + updateAmount : 1
     }
     
-    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, sol: Int? = nil, page: Int, completion: @escaping (Result<Bool, NetworkingManagerError>) -> Void){
+    func getDataFromAPI(earthDate: Date? = nil, camera: String? = nil, sol: Int? = nil, page: Int, completion: @escaping (Bool) -> Void){
         var queryParameters: [String] = []
 
         queryParameters = ["page=\(self.page)"]
@@ -80,9 +81,11 @@ class MarsRoverViewModel {
             case .success(let model):
                 self.model = model
                 
-                completion(.success(true))
+                completion(true)
             case .failure(let error):
-                completion(.failure(error))
+                self.error = error
+                
+                completion(false)
             }
         }
     }
